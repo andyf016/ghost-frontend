@@ -41,7 +41,7 @@ const useStyles = makeStyles({
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    
       <Container maxWidth='md'>
         <div className='container'>
           <header className='App-header'>
@@ -51,7 +51,7 @@ function App() {
           </header>
         </div>
       </Container>
-    </ThemeProvider>
+    
   );
 }
 
