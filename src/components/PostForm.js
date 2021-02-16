@@ -7,7 +7,7 @@ const handleSubmit = (e) =>{
 const PostForm = () => {
     return (
         <form onSubmit={handleSubmit}>
-            <TextField />
+            <TextField variant='filled'/>
         </form>
     )
 }
