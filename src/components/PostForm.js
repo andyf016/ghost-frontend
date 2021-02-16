@@ -1,9 +1,10 @@
 import {useState} from 'react'
 import TextField from '@material-ui/core/TextField'
 import Checkbox from "@material-ui/core/Checkbox";
-import SaveIcon from "@material-ui/icons/Save";
-import DeleteIcon from "@material-ui/icons/Delete";
+
+import SentimentVerySatisfied from '@material-ui/icons/SentimentVerySatisfied';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { SentimentVeryDissatisfied } from '@material-ui/icons';
 const handleSubmit = (e) =>{
     e.preventDefault()
     console.log(e)
@@ -20,8 +21,8 @@ const PostForm = () => {
         control={
           <Checkbox
             checked={checked}
-            icon={<DeleteIcon />}
-            checkedIcon={<SaveIcon />}
+            icon={<SentimentVerySatisfied />}
+            checkedIcon={<SentimentVeryDissatisfied />}
             onChange={(e) => setChecked(e.target.checked)}
             inputProps={{
               "aria-label": "secondary checkbox",
