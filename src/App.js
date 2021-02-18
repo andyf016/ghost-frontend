@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core/styles";
 import { orange } from "@material-ui/core/colors";
 import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 
 import PostForm from "./components/PostForm";
 import Header from "./components/Header";
