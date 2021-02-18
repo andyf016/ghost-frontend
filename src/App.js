@@ -43,6 +43,9 @@ const useStyles = makeStyles({
 
 
 function App() {
+
+  const [posts, setPosts] = useState([])
+
   const fetchPosts = async () => {
     const res = await fetch("http://127.0.0.1:8000/api/post/")
     const data = await res.json()
@@ -63,7 +66,7 @@ useEffect(fetchPosts)
           <PostForm /> 
           </div>
           <div className='Post-card'>
-          <Grid container spacing={100} justify="center">
+          <Grid container spacing={10} justify="center">
             <Grid item xs={3} sm={3}>
               <PostCard />
             </Grid>
