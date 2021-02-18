@@ -11,6 +11,7 @@ import { orange } from "@material-ui/core/colors";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 
+import PostCard from "./components/PostCard"
 import PostForm from "./components/PostForm";
 import Header from "./components/Header";
 import TopBar from "./components/TopBar";
@@ -50,6 +51,14 @@ function App() {
           <Header />
           <PostForm />
           </header>
+          <Grid container spacing={4} justify="center">
+            <Grid item xs={3} sm={3}>
+              <PostCard />
+            </Grid>
+            <Grid item xs={3} sm={3}>
+              <PostCard />
+            </Grid>
+          </Grid>
         </div>
       </Container>
     
