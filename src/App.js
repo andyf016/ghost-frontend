@@ -49,8 +49,10 @@ function App() {
           <header className='App-header'>
           <TopBar />
           <Header />
-          <PostForm />
           </header>
+          <div className='Post-form'>
+          <PostForm /> 
+          </div>
           <Grid container spacing={4} justify="center">
             <Grid item xs={3} sm={3}>
               <PostCard />
