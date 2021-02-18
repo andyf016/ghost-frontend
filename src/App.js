@@ -41,7 +41,16 @@ const useStyles = makeStyles({
   },
 });
 
+
 function App() {
+  const fetchPosts = async () => {
+    const res = await fetch("http://127.0.0.1:8000/api/post/")
+    const data = await res.json()
+    console.log(data)
+    return data
+  }
+useEffect(fetchPosts)
+
   return (
     
       <Container maxWidth='md'>
