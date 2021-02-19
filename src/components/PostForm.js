@@ -16,7 +16,7 @@ const PostForm = () => {
       e.preventDefault()
       console.log(e)
   }
-
+    const [text, setText] = useState('')
     const [checked, setChecked] = useState(true);
     return (
         <form onSubmit={handleSubmit}>

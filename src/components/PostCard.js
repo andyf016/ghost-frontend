@@ -43,8 +43,8 @@ const PostCard = ({post, onUp, onDown}) => {
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
-        <Button size="small" onClick={onUp}>Love it</Button>
-        <Button size="small" onClick={onDown}>Hate it</Button>
+        <Button size="small" onClick={() => onUp(post.id)}>Love it</Button>
+        <Button size="small" onClick={() => onDown(post.id)}>Hate it</Button>
       </CardActions>
     </Card>
     )
