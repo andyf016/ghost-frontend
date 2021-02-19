@@ -64,9 +64,7 @@ const fetchPosts = async () => {
 } 
 
 const handleUpVote = (id) => {
-  const downvote = new XMLHttpRequest()
-  downvote.open("POST", `http://127.0.0.1:8000/api/post/${id}/up_vote/`)
-  downvote.send()
+
   console.log('Up', id)
 }
 
@@ -76,6 +74,15 @@ const handleDownVote = (id) => {
 
 const handleAdd = (task) => {
   console.log(task)
+}
+
+const handleAddPost = async (post) =>{
+  const res = await fetch('http://127.0.0.1:8000/api/post/', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    }, body: JSON.stringify(post)
+  })
 }
 
   return (
