@@ -3,7 +3,7 @@ const Posts = ({posts}) => {
     return (
         <div>
             {posts.map((post) => (
-                <h3>{post.id}</h3>
+                <PostCard key={post.id} post={post} />
             ))}
         </div>
     )
