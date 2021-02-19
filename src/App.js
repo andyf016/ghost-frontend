@@ -45,27 +45,23 @@ const useStyles = makeStyles({
 
 function App() {
   const [showPostForm, setShowPostForm] = useState(false)
-  const [posts, setPosts] = useState([
-    {
-      body: ": (",
-      created: "2021-02-03T06:13:44.896477Z",
-      down_votes: 0,
-      id: 63,
-      sentiment: "b",
-      total_votes: 0,
-      up_votes: 0,
-      update: "2021-02-03T06:13:44.896496Z",
-      url: "http://127.0.0.1:8000/api/post/63"
-    },
-  ])
+  const [posts, setPosts] = useState([])
 
-  const fetchPosts = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/post/")
-    const data = await res.json()
-    console.log(data)
-    return data
+
+useEffect(() =>{
+  const getPosts = async () => {
+    const postsFromServer = await fetchPosts()
+    setPosts(postsFromServer)  
   }
-useEffect(fetchPosts)
+  getPosts()
+}, [])
+
+const fetchPosts = async () => {
+  const res = await fetch("http://127.0.0.1:8000/api/post/")
+  const data = await res.json()
+  console.log(data)
+  return data
+} 
 
 const handleUpVote = (id) => {
   console.log('Up', id)
