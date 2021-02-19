@@ -10,13 +10,13 @@ import { SentimentVeryDissatisfied } from '@material-ui/icons';
 
 
 
-const PostForm = ({handleAdd}) => {
+const PostForm = ({onAdd}) => {
   const [text, setText] = useState('')
   const [checked, setChecked] = useState(false);
   
   const handleSubmit = (e) =>{
       e.preventDefault()
-      handleAdd({text, checked})
+      onAdd({text, checked})
 
       setText('')
       setChecked(false)
