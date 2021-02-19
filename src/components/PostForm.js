@@ -20,11 +20,11 @@ const PostForm = ({onAdd}) => {
 
       setText('')
       setChecked(false)
-      console.log(e)
+      //console.log(e)
   }
     return (
         <form onSubmit={handleSubmit}>
-            <TextField variant='filled' type={text} onChange={(e) => setText(e.target.value)}/>
+            <TextField variant='filled' type={text} value={text} placeholder="you thoughts" onChange={(e) => setText(e.target.value)}/>
             <Button color={'primary'} variant={'outlined'} onClick={handleSubmit}>
               Submit!
             </Button>
