@@ -8,18 +8,20 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { SentimentVeryDissatisfied } from '@material-ui/icons';
 
 
-const handleSubmit = (e) =>{
-    e.preventDefault()
-    console.log(e)
-}
 
 
 const PostForm = () => {
+  
+  const handleSubmit = (e) =>{
+      e.preventDefault()
+      console.log(e)
+  }
+
     const [checked, setChecked] = useState(true);
     return (
         <form onSubmit={handleSubmit}>
             <TextField variant='filled'/>
-            <Button color={'primary'} variant={'outlined'}>
+            <Button color={'primary'} variant={'outlined'} onClick={handleSubmit}>
               Submit!
             </Button>
             <FormControlLabel
