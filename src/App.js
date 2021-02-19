@@ -82,6 +82,7 @@ const handleAdd = async (post) =>{
     }, body: JSON.stringify(post)
   })
   const data = await res.json()
+  console.log(data)
   setPosts([...posts, data])
 }
 

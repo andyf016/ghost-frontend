@@ -11,24 +11,24 @@ import { SentimentVeryDissatisfied } from '@material-ui/icons';
 
 
 const PostForm = ({onAdd}) => {
-  const [text, setText] = useState('')
+  const [body, setText] = useState('')
   const [checked, setChecked] = useState(false);
   
   const handleSubmit = (e) =>{
       e.preventDefault()
-      if(!text){
+      if(!body){
         alert("please add some text")
         return
       }
       
-      onAdd({text, checked})
+      onAdd({body, checked})
       setText('')
       setChecked(false)
       //console.log(e)
   }
     return (
         <form onSubmit={handleSubmit}>
-            <TextField variant='filled' type={text} value={text} placeholder="you thoughts" onChange={(e) => setText(e.target.value)}/>
+            <TextField variant='filled' type={body} value={body} placeholder="you thoughts" onChange={(e) => setText(e.target.value)}/>
             <Button color={'primary'} variant={'outlined'} onClick={handleSubmit}>
               Submit!
             </Button>
