@@ -75,6 +75,10 @@ const handleDownVote = (id) => {
   console.log('Down', id)
 }
 
+const handleAdd = (task) => {
+  console.log(task)
+}
+
   return (
     
       <Container maxWidth='md'>
@@ -84,7 +88,7 @@ const handleDownVote = (id) => {
           <Header />
           </header>
           <div className='Post-form'>
-          <PostForm /> 
+          <PostForm onAdd={handleAdd}/> 
           </div>
           <div className='Post-card'>
           <Posts posts={posts} onDown={handleDownVote} onUp={handleUpVote}/>

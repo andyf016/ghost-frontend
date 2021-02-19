@@ -10,17 +10,21 @@ import { SentimentVeryDissatisfied } from '@material-ui/icons';
 
 
 
-const PostForm = () => {
+const PostForm = ({handleAdd}) => {
+  const [text, setText] = useState('')
+  const [checked, setChecked] = useState(false);
   
   const handleSubmit = (e) =>{
       e.preventDefault()
+      handleAdd({text, checked})
+
+      setText('')
+      setChecked(false)
       console.log(e)
   }
-    const [text, setText] = useState('')
-    const [checked, setChecked] = useState(true);
     return (
         <form onSubmit={handleSubmit}>
-            <TextField variant='filled'/>
+            <TextField variant='filled' type={text} onChange={(e) => setText(e.target.value)}/>
             <Button color={'primary'} variant={'outlined'} onClick={handleSubmit}>
               Submit!
             </Button>
@@ -30,7 +34,7 @@ const PostForm = () => {
             checked={checked}
             icon={<SentimentVerySatisfied />}
             checkedIcon={<SentimentVeryDissatisfied />}
-            onChange={(e) => setChecked(e.target.checked)}
+            onChange={(e) => setChecked(e.currentTarget.checked)}
             inputProps={{
               "aria-label": "secondary checkbox",
             }}
