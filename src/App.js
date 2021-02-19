@@ -85,7 +85,7 @@ const handleAdd = (task) => {
         <div className='container'>
           <header className='App-header'>
           <TopBar />
-          <Header onAdd={() => setShowPostForm(!showPostForm)}/>
+          <Header onAdd={() => setShowPostForm(!showPostForm)} showAdd={showPostForm}/>
           </header>
           {showPostForm && <div className='Post-form'>
           <PostForm onAdd={handleAdd}/> 
