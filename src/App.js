@@ -72,17 +72,17 @@ const handleDownVote = (id) => {
   console.log('Down', id)
 }
 
-const handleAdd = (task) => {
-  console.log(task)
-}
 
-const handleAddPost = async (post) =>{
+
+const handleAdd = async (post) =>{
   const res = await fetch('http://127.0.0.1:8000/api/post/', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json'
     }, body: JSON.stringify(post)
   })
+  const data = await res.json()
+  setPosts([...posts, data])
 }
 
   return (
