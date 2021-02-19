@@ -67,6 +67,14 @@ function App() {
   }
 useEffect(fetchPosts)
 
+const handleUpVote = (id) => {
+  console.log('Up', id)
+}
+
+const handleDownVote = (id) => {
+  console.log('Down', id)
+}
+
   return (
     
       <Container maxWidth='md'>
@@ -79,7 +87,7 @@ useEffect(fetchPosts)
           <PostForm /> 
           </div>
           <div className='Post-card'>
-          <Posts posts={posts}/>
+          <Posts posts={posts} onDown={handleDownVote} onUp={handleUpVote}/>
           </div>
         </div>
       </Container>

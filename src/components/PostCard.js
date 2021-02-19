@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 });
 
 
-const PostCard = ({post}) => {
+const PostCard = ({post, onUp, onDown}) => {
     const classes = useStyles();
 
     return (
@@ -43,8 +43,8 @@ const PostCard = ({post}) => {
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
-        <Button size="small">Love it</Button>
-        <Button size="small">Hate it</Button>
+        <Button size="small" onClick={onUp}>Love it</Button>
+        <Button size="small" onClick={onDown}>Hate it</Button>
       </CardActions>
     </Card>
     )
