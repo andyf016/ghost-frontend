@@ -10,7 +10,7 @@ const Header = ({onAdd, showAdd}) => {
            Anonymous Blather with Sentiment
         </Typography>
         <br/>
-        <Button onClick={onAdd} color={'primary'}>{showAdd ? 'Close Form' : 'Post Reply'}</Button>
+        <Button onClick={onAdd} color={showAdd ? 'primary' : 'secondary'}>{showAdd ? 'Close Form' : 'Post Reply'}</Button>
         </Container>
     )
 }
