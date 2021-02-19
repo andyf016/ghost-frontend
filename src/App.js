@@ -44,7 +44,7 @@ const useStyles = makeStyles({
 
 
 function App() {
-
+  const [showPostForm, setShowPostForm] = useState(false)
   const [posts, setPosts] = useState([
     {
       body: ": (",
@@ -85,11 +85,11 @@ const handleAdd = (task) => {
         <div className='container'>
           <header className='App-header'>
           <TopBar />
-          <Header />
+          <Header onAdd={() => setShowPostForm(!showPostForm)}/>
           </header>
-          <div className='Post-form'>
+          {showPostForm && <div className='Post-form'>
           <PostForm onAdd={handleAdd}/> 
-          </div>
+          </div>}
           <div className='Post-card'>
           <Posts posts={posts} onDown={handleDownVote} onUp={handleUpVote}/>
           </div>
