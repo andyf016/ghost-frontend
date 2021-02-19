@@ -11,7 +11,7 @@ import { orange } from "@material-ui/core/colors";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 
-import PostCard from "./components/PostCard"
+import Posts from "./components/Posts"
 import PostForm from "./components/PostForm";
 import Header from "./components/Header";
 import TopBar from "./components/TopBar";
@@ -45,12 +45,24 @@ const useStyles = makeStyles({
 
 function App() {
 
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([
+    {
+      body: ": (",
+      created: "2021-02-03T06:13:44.896477Z",
+      down_votes: 0,
+      id: 63,
+      sentiment: "b",
+      total_votes: 0,
+      up_votes: 0,
+      update: "2021-02-03T06:13:44.896496Z",
+      url: "http://127.0.0.1:8000/api/post/63"
+    },
+  ])
 
   const fetchPosts = async () => {
     const res = await fetch("http://127.0.0.1:8000/api/post/")
     const data = await res.json()
-    console.log(data[0].id)
+    console.log(data)
     return data
   }
 useEffect(fetchPosts)
@@ -67,14 +79,7 @@ useEffect(fetchPosts)
           <PostForm /> 
           </div>
           <div className='Post-card'>
-          <Grid container spacing={10} justify="center">
-            <Grid item xs={3} sm={3}>
-              <PostCard />
-            </Grid>
-            <Grid item xs={3} sm={3}>
-              <PostCard />
-            </Grid>
-          </Grid>
+          <Posts posts={posts}/>
           </div>
         </div>
       </Container>

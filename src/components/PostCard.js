@@ -23,9 +23,8 @@ const useStyles = makeStyles({
 });
 
 
-const PostCard = ({body}) => {
+const PostCard = ({post}) => {
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
 
     return (
         <Card className={classes.root}>
@@ -34,7 +33,7 @@ const PostCard = ({body}) => {
           Word of the Day
         </Typography>
         <Typography variant="h5" component="h2">
-          {body}
+          {post}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
           adjective
