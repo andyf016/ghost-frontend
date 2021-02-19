@@ -16,8 +16,12 @@ const PostForm = ({onAdd}) => {
   
   const handleSubmit = (e) =>{
       e.preventDefault()
+      if(!text){
+        alert("please add some text")
+        return
+      }
+      
       onAdd({text, checked})
-
       setText('')
       setChecked(false)
       //console.log(e)
