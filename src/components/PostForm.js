@@ -1,10 +1,13 @@
 import {useState} from 'react'
 import TextField from '@material-ui/core/TextField'
 import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button"
 
 import SentimentVerySatisfied from '@material-ui/icons/SentimentVerySatisfied';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { SentimentVeryDissatisfied } from '@material-ui/icons';
+
+
 const handleSubmit = (e) =>{
     e.preventDefault()
     console.log(e)
@@ -15,8 +18,10 @@ const PostForm = () => {
     const [checked, setChecked] = useState(true);
     return (
         <form onSubmit={handleSubmit}>
-            <TextField variant='filled'/><br/>
-            <input type='submit' value='Save Task' className='btn btn-block' />
+            <TextField variant='filled'/>
+            <Button color={'primary'} variant={'outlined'}>
+              Submit!
+            </Button>
             <FormControlLabel
         control={
           <Checkbox

@@ -15,6 +15,7 @@ import PostCard from "./components/PostCard"
 import PostForm from "./components/PostForm";
 import Header from "./components/Header";
 import TopBar from "./components/TopBar";
+
 import "fontsource-roboto";
 
 const theme = createMuiTheme({
@@ -49,7 +50,7 @@ function App() {
   const fetchPosts = async () => {
     const res = await fetch("http://127.0.0.1:8000/api/post/")
     const data = await res.json()
-    console.log(data)
+    console.log(data[0].id)
     return data
   }
 useEffect(fetchPosts)
