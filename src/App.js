@@ -74,14 +74,16 @@ const fetchPost = async (id) => {
 const handleUpVote = async (id) => {
   const postToUpvote = await fetchPost(id)
   const upvotedPost = {...postToUpvote, up_votes: postToUpvote.up_votes++}
-  const res = await fetch(`http://127.0.0.1:8000/api/post/${id}`,{
-    method: 'PUT',
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${id}/up_vote/`,{
+    method: 'POST',
     headers: {
-      'Cpntent-type': 'application/json'
-    },
-    body: JSON.stringify(upvotedPost)
+      'Content-type': 'application/json'
+    }, body: JSON.stringify(upvotedPost)
   })
   const data = await res.json()
+  const postsFromServer = await fetchPosts()
+    setPosts(postsFromServer)  
+  
 }
 
 const handleDownVote = async (id) => {
