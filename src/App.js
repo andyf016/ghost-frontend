@@ -82,7 +82,7 @@ const handleDownVote = async (id) => {
     }
   })
   console.log('Down', id)
-  setPosts([])
+  setPosts([...posts])
 }
 
 
