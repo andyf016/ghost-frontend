@@ -74,7 +74,13 @@ const handleUpVote = async (id) => {
   setPosts([...posts])
 }
 
-const handleDownVote = (id) => {
+const handleDownVote = async (id) => {
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${id}/down_vote/`, {
+    method: 'PUT',
+    headers: {
+      'Co'
+    }
+  })
   console.log('Down', id)
 }
 
