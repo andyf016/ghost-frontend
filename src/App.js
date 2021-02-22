@@ -63,8 +63,8 @@ const fetchPosts = async () => {
   return data
 } 
 
-const handleUpVote = (id) => {
-
+const handleUpVote = async (id) => {
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${p.id}/up_vote/`)
   console.log('Up', id)
 }
 
