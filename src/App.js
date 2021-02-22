@@ -64,7 +64,7 @@ const fetchPosts = async () => {
 } 
 
 const fetchPost = async (id) => {
-  const res = await fetch("http://127.0.0.1:8000/api/post/")
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${id}`)
   const data = await res.json()
   console.log(data)
   return data
@@ -72,8 +72,16 @@ const fetchPost = async (id) => {
 
 
 const handleUpVote = async (id) => {
-
-  setPosts([...posts])
+  const postToUpvote = await fetchPost(id)
+  const upvotedPost = {...postToUpvote, up_votes: postToUpvote.up_votes++}
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${id}`,{
+    method: 'PUT',
+    headers: {
+      'Cpntent-type': 'application/json'
+    },
+    body: JSON.stringify(upvotedPost)
+  })
+  const data = await res.json()
 }
 
 const handleDownVote = async (id) => {
