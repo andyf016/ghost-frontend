@@ -33,7 +33,7 @@ const PostCard = ({post, onUp, onDown}) => {
           {post.body}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          {post.sentiment}
+          {(post.sentiment === 'b') ? 'Boast' : 'Roast'}
         </Typography>
         <Typography variant="body2" component="p">
           Popularity
