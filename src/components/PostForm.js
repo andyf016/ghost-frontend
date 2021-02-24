@@ -10,9 +10,21 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { SentimentVeryDissatisfied } from '@material-ui/icons';
 import './componentcss.css'
 
-
+const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: 15,
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(10),
+      width: theme.spacing(16),
+      height: theme.spacing(16),
+    },
+  },
+}));
 
 const PostForm = ({onAdd}) => {
+  const classes = useStyles();
   const [body, setText] = useState('')
   const [checked, setChecked] = useState(true);
   
@@ -33,7 +45,8 @@ const PostForm = ({onAdd}) => {
       //console.log(e)
   }
     return (
-      <Paper elevation={3}>
+      <div className='Form-paper'>
+      <Paper classname={classes.root} elevation={3}>
         <form className='Post-form' onSubmit={handleSubmit}>
             <TextField className='Text-field' variant='filled' type={body} value={body} placeholder="you thoughts" onChange={(e) => setText(e.target.value)}/>
             <Button color={'primary'} variant={'outlined'} onClick={handleSubmit}>
@@ -56,6 +69,7 @@ const PostForm = ({onAdd}) => {
       />
         </form>
         </Paper>
+        </div>
     )
 }
 

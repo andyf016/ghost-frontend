@@ -2,6 +2,10 @@
     border-color: black;
 }
 
+.Form-paper {
+    margin-top: 15px;
+}
+
 .Text-field {
-    background-color: blue;
+    margin: auto;
 }
