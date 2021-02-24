@@ -95,9 +95,10 @@ const handleDownVote = async (id) => {
       'content-type': 'application/json'
     }, body: JSON.stringify(downvotedPost)
   })
-  const postsFromServer = await fetchPost()
-  setPosts(postsFromServer)
   console.log('Down', id)
+  const data = await res.json()
+  const postsFromServer = await fetchPosts()
+    setPosts(postsFromServer)
   
 }
 
