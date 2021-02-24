@@ -15,13 +15,17 @@ const PostForm = ({onAdd}) => {
   const [checked, setChecked] = useState(true);
   
   const handleSubmit = (e) =>{
+    let sentiment = 'r'
+    if(!checked){
+      sentiment = 'b'
+    }
       e.preventDefault()
       if(!body){
         alert("please add some text")
         return
       }
       
-      onAdd({body, checked})
+      onAdd({body, sentiment})
       setText('')
       setChecked(false)
       //console.log(e)
