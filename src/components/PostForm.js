@@ -12,7 +12,7 @@ import './componentcss.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: 15,
+    minWidth: 275,
     display: 'flex',
     flexWrap: 'wrap',
     '& > *': {
@@ -46,12 +46,8 @@ const PostForm = ({onAdd}) => {
   }
     return (
       <div className='Form-paper'>
-      <Paper classname={classes.root} elevation={3}>
+      <Paper classname={classes.root} variant='elevation' elevation={3}>
         <form className='Post-form' onSubmit={handleSubmit}>
-            <TextField className='Text-field' variant='filled' type={body} value={body} placeholder="you thoughts" onChange={(e) => setText(e.target.value)}/>
-            <Button color={'primary'} variant={'outlined'} onClick={handleSubmit}>
-              Submit!
-            </Button>
             <FormControlLabel
         control={
           <Checkbox
@@ -66,7 +62,13 @@ const PostForm = ({onAdd}) => {
           />
         }
         label='Sentiment'
-      />
+      />    <div className='Text-field'>
+            <TextField variant='outlined' type={body} value={body} placeholder="you thoughts" onChange={(e) => setText(e.target.value)}/>
+            </div>
+            <div className='Submit-button'>
+            <Button color={'primary'} variant={'outlined'} onClick={handleSubmit}>
+              Submit!
+            </Button></div>
         </form>
         </Paper>
         </div>

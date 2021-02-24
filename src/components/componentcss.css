@@ -1,11 +1,13 @@
-.Post-form {
-    border-color: black;
-}
 
 .Form-paper {
     margin-top: 15px;
+    min-width: 600px;
 }
 
 .Text-field {
-    margin: auto;
+    margin: 5px;
+}
+
+.Submit-button {
+    margin: 5px;
 }
