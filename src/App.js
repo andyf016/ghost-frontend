@@ -87,7 +87,7 @@ const handleUpVote = async (id) => {
 }
 
 const handleDownVote = async (id) => {
-
+  const postToDownvote = await 
   console.log('Down', id)
   
 }
