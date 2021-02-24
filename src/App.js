@@ -46,6 +46,7 @@ const useStyles = makeStyles({
 function App() {
   const [showPostForm, setShowPostForm] = useState(false)
   const [posts, setPosts] = useState([])
+  const [sortBy, setSortBy] = useState('b')
 
 
 useEffect(() =>{
