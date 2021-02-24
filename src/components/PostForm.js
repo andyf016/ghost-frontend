@@ -12,7 +12,7 @@ import { SentimentVeryDissatisfied } from '@material-ui/icons';
 
 const PostForm = ({onAdd}) => {
   const [body, setText] = useState('')
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
   
   const handleSubmit = (e) =>{
       e.preventDefault()
@@ -35,6 +35,7 @@ const PostForm = ({onAdd}) => {
             <FormControlLabel
         control={
           <Checkbox
+            value={checked}
             checked={checked}
             icon={<SentimentVerySatisfied />}
             checkedIcon={<SentimentVeryDissatisfied />}
