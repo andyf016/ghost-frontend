@@ -87,7 +87,16 @@ const handleUpVote = async (id) => {
 }
 
 const handleDownVote = async (id) => {
-  const postToDownvote = await 
+  const postToDownvote = await fetchPost(id)
+  const downvotedPost = {...postToDownvote, down_votes: postToDownvote.down_votes++}
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${id}/down_vote/`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    }, body: JSON.stringify(downvotedPost)
+  })
+  const postsFromServer = await fetchPost()
+  setPosts(postsFromServer)
   console.log('Down', id)
   
 }
