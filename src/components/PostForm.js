@@ -66,7 +66,7 @@ const PostForm = ({onAdd}) => {
             <TextField variant='outlined' type={body} value={body} placeholder="you thoughts" onChange={(e) => setText(e.target.value)}/>
             </div>
             <div className='Submit-button'>
-            <Button color={'primary'} variant={'outlined'} onClick={handleSubmit}>
+            <Button color='primary' variant='outlined' onClick={handleSubmit}>
               Submit!
             </Button></div>
         </form>
