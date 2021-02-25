@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import TextField from '@material-ui/core/TextField'
+
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button"
 import Paper from '@material-ui/core/Paper';
@@ -12,13 +13,14 @@ import './componentcss.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 275,
+    minWidth: 100,
+    justifyContent: 'center',
     display: 'flex',
     flexWrap: 'wrap',
     '& > *': {
       margin: theme.spacing(10),
       width: theme.spacing(16),
-      height: theme.spacing(16),
+      height: theme.spacing(10),
     },
   },
 }));
@@ -46,7 +48,7 @@ const PostForm = ({onAdd}) => {
   }
     return (
       <div className='Form-paper'>
-      <Paper classname={classes.root} variant='elevation' elevation={3}>
+      <Paper className={classes.root} variant='elevation' elevation={3}>
         <form className='Post-form' onSubmit={handleSubmit}>
             <FormControlLabel
         control={
@@ -63,7 +65,7 @@ const PostForm = ({onAdd}) => {
         }
         label='Sentiment'
       />    <div className='Text-field'>
-            <TextField variant='outlined' type={body} value={body} placeholder="you thoughts" onChange={(e) => setText(e.target.value)}/>
+            <TextField multiline rows={5} fullWidth variant='outlined' type={body} value={body} placeholder="your thoughts" onChange={(e) => setText(e.target.value)}/>
             </div>
             <div className='Submit-button'>
             <Button color='primary' variant='outlined' onClick={handleSubmit}>

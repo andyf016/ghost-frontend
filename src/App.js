@@ -72,9 +72,6 @@ const fetchPost = async (id) => {
   return data
 } 
 
-const handleSort = (sort) => {
-  setSortBySentiment(sort)
-}
 
 const handleUpVote = async (id) => {
   const postToUpvote = await fetchPost(id)
@@ -126,7 +123,7 @@ const handleAdd = async (post) =>{
       <Container maxWidth='md'>
         <div className='container'>
           <header className='App-header'>
-          <TopBar onAdd={handleSort}/>
+          <TopBar />
           <Header onAdd={() => setShowPostForm(!showPostForm)} showAdd={showPostForm}/>
           </header>
           {showPostForm && <div className='Post-form'>
