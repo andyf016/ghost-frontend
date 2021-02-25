@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import TextField from '@material-ui/core/TextField'
 
+import { green, red } from '@material-ui/core/colors'
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button"
 import Paper from '@material-ui/core/Paper';
@@ -55,8 +56,8 @@ const PostForm = ({onAdd}) => {
           <Checkbox
             value={checked}
             checked={checked}
-            icon={<SentimentVerySatisfied />}
-            checkedIcon={<SentimentVeryDissatisfied />}
+            icon={<SentimentVerySatisfied style={{ color: green[500] }}/>}
+            checkedIcon={<SentimentVeryDissatisfied style={{ color: red[500] }}/>}
             onChange={(e) => setChecked(e.currentTarget.checked)}
             inputProps={{
               "aria-label": "secondary checkbox",
