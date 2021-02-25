@@ -6,9 +6,16 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import "./componentcss.css"
 const useStyles = makeStyles({
-  root: {
+  rootRoast: {
     minWidth: 275,
     marginTop: 15,
+    backgroundColor: '#ff5722',
+  },
+
+  rootBoast: {
+    minWidth: 275,
+    marginTop: 15,
+    backgroundColor: '#03a9f4',
   },
 
   title: {
@@ -24,7 +31,7 @@ const PostCard = ({post, onUp, onDown}) => {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
+        <Card className={(post.sentiment === 'b') ? classes.rootBoast : classes.rootRoast}>
       <CardContent>
         <Typography variant="h5" component="h2">
           {post.body}
