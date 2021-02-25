@@ -59,12 +59,14 @@ useEffect(() =>{
 }, [])
 
 const toggleSort = async (sort) => {
-
+      setSortBySentiment(sort)
+      const data = await fetchPosts()
+      setPosts(data)
   
   }
 
-  const fetchPosts = async () => {
-  const res = await fetch('http://127.0.0.1:8000/api/post/')
+const fetchPosts = async () => {
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${sortBySentiment}`)
   const data = await res.json()
   console.log(data)
   return data
