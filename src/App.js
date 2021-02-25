@@ -58,8 +58,13 @@ useEffect(() =>{
   getPosts()
 }, [])
 
-const fetchPosts = async () => {
-  const res = await fetch(`http://127.0.0.1:8000/api/post/${sortBySentiment}`)
+const toggleSort = async (sort) => {
+
+  
+  }
+
+  const fetchPosts = async () => {
+  const res = await fetch('http://127.0.0.1:8000/api/post/')
   const data = await res.json()
   console.log(data)
   return data
@@ -123,7 +128,7 @@ const handleAdd = async (post) =>{
       <Container maxWidth='md'>
         <div className='container'>
           <header className='App-header'>
-          <TopBar />
+          <TopBar onSort={toggleSort}/>
           <Header onAdd={() => setShowPostForm(!showPostForm)} showAdd={showPostForm}/>
           </header>
           {showPostForm && <div className='Post-form'>
