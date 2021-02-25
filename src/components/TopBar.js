@@ -10,15 +10,17 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import "fontsource-roboto";
 
-const TopBar = () => {
+const TopBar = ({onAdd}) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (value) => {
     setAnchorEl(null);
+    console.log({value})
+    //onAdd(value)
   };
     return (
         <AppBar>
@@ -32,9 +34,9 @@ const TopBar = () => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose} value={''} >All</MenuItem>
+        <MenuItem onClick={handleClose} value={'list_roasts'}>Boasts</MenuItem>
+        <MenuItem onClick={handleClose} value={'list_boasts'}>Roasts</MenuItem>
       </Menu>
                   </IconButton>
                   <Typography variant="h6">

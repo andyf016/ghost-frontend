@@ -46,8 +46,9 @@ const useStyles = makeStyles({
 function App() {
   const [showPostForm, setShowPostForm] = useState(false)
   const [posts, setPosts] = useState([])
-  const [sortBy, setSortBy] = useState('b')
+  const [sortBySentiment, setSortBySentiment] = useState('')
 
+  
 
 useEffect(() =>{
   const getPosts = async () => {
@@ -58,7 +59,7 @@ useEffect(() =>{
 }, [])
 
 const fetchPosts = async () => {
-  const res = await fetch("http://127.0.0.1:8000/api/post/")
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${sortBySentiment}`)
   const data = await res.json()
   console.log(data)
   return data
@@ -71,6 +72,9 @@ const fetchPost = async (id) => {
   return data
 } 
 
+const handleSort = (sort) => {
+  setSortBySentiment(sort)
+}
 
 const handleUpVote = async (id) => {
   const postToUpvote = await fetchPost(id)
@@ -122,7 +126,7 @@ const handleAdd = async (post) =>{
       <Container maxWidth='md'>
         <div className='container'>
           <header className='App-header'>
-          <TopBar />
+          <TopBar onAdd={handleSort}/>
           <Header onAdd={() => setShowPostForm(!showPostForm)} showAdd={showPostForm}/>
           </header>
           {showPostForm && <div className='Post-form'>
