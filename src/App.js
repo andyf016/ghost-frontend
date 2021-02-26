@@ -63,10 +63,21 @@ const toggleSort = async (sort) => {
   //console.log(sort)
   const res = await fetch(`http://127.0.0.1:8000/api/post/${sort}`)
   const data = await res.json()
-  setPosts(data)
-  //console.log(data)
-    }
   
+  setPosts(sort_by_key(data, 'total_votes'))
+  //console.log(data)
+}
+
+
+function sort_by_key(array, key)
+{
+ return array.sort(function(a, b)
+ {
+  var x = a[key]; var y = b[key];
+  return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+ });
+}
+
 
 const fetchPosts = async () => {
   const res = await fetch(`http://127.0.0.1:8000/api/post/${sortBySentiment}`)
