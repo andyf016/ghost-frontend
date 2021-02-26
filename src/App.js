@@ -60,7 +60,7 @@ useEffect(() =>{
 
 const toggleSort = async (sort) => {
   setSortBySentiment(sort)
-  console.log(sort)
+  //console.log(sort)
   const res = await fetch(`http://127.0.0.1:8000/api/post/${sort}`)
   const data = await res.json()
   setPosts(data)
@@ -71,14 +71,14 @@ const toggleSort = async (sort) => {
 const fetchPosts = async () => {
   const res = await fetch(`http://127.0.0.1:8000/api/post/${sortBySentiment}`)
   const data = await res.json()
-  console.log(data)
+  //console.log(data)
   return data
 } 
 
 const fetchPost = async (id) => {
   const res = await fetch(`http://127.0.0.1:8000/api/post/${id}`)
   const data = await res.json()
-  console.log(data)
+  //console.log(data)
   return data
 } 
 
@@ -107,7 +107,7 @@ const handleDownVote = async (id) => {
       'content-type': 'application/json'
     }, body: JSON.stringify(downvotedPost)
   })
-  console.log('Down', id)
+  //console.log('Down', id)
   const data = await res.json()
   const postsFromServer = await fetchPosts()
     setPosts(postsFromServer)
@@ -124,7 +124,7 @@ const handleAdd = async (post) =>{
     }, body: JSON.stringify(post)
   })
   const data = await res.json()
-  console.log(data)
+  //console.log(data)
   setPosts([...posts, data])
 }
 
