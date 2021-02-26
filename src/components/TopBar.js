@@ -10,7 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import "fontsource-roboto";
 
-const TopBar = ({onSort}) => {
+const TopBar = ({onSort, onKey}) => {
 const [anchorEl, setAnchorEl] = useState(null);
 //const [boastState, setboastState] = useState('list_boasts')
 //const [roastState, ]
@@ -22,6 +22,18 @@ const handleClick = (event) => {
 const handleClose = () => {
   setAnchorEl(null);
 };
+
+const handlePopular = () =>{
+  onKey('total_votes')
+  handleClose()
+  console.log('opop')
+}
+
+const handleCreated = () =>{
+  onKey('created')
+  handleClose()
+  console.log('opop')
+}
 
 const handleBoastSort = () =>{
   onSort('list_boasts/')
@@ -59,6 +71,8 @@ const handleAllSort = () =>{
         <MenuItem onClick={handleBoastSort}>Boasts</MenuItem>
         <MenuItem onClick={handleRoastSort}>Roasts</MenuItem>
         <MenuItem onClick={handleAllSort}>All</MenuItem>
+        <MenuItem onClick={handlePopular}>Most Popular</MenuItem>
+        <MenuItem onClick={handleCreated}>Newest</MenuItem>
       </Menu>
               </ToolBar>
             </AppBar>

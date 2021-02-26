@@ -47,13 +47,14 @@ function App() {
   const [showPostForm, setShowPostForm] = useState(false)
   const [posts, setPosts] = useState([])
   const [sortBySentiment, setSortBySentiment] = useState('')
+  const [sortKey, setSortKey] = useState('created')
 
   
 
 useEffect(() =>{
   const getPosts = async () => {
     const postsFromServer = await fetchPosts()
-    setPosts(postsFromServer)  
+    setPosts(sort_by_key(postsFromServer, sortKey))  
   }
   getPosts()
 }, [])
@@ -64,7 +65,7 @@ const toggleSort = async (sort) => {
   const res = await fetch(`http://127.0.0.1:8000/api/post/${sort}`)
   const data = await res.json()
   
-  setPosts(sort_by_key(data, 'created'))
+  setPosts(sort_by_key(data, sortKey))
   //console.log(data)
 }
 
@@ -106,7 +107,7 @@ const handleUpVote = async (id) => {
   })
   const data = await res.json()
   const postsFromServer = await fetchPosts()
-    setPosts(postsFromServer)  
+    setPosts(sort_by_key(postsFromServer, sortKey))  
   
 }
 
@@ -122,7 +123,7 @@ const handleDownVote = async (id) => {
   //console.log('Down', id)
   const data = await res.json()
   const postsFromServer = await fetchPosts()
-    setPosts(postsFromServer)
+  setPosts(sort_by_key(postsFromServer, sortKey))
   
 }
 
@@ -137,15 +138,23 @@ const handleAdd = async (post) =>{
   })
   const data = await res.json()
   //console.log(data)
-  setPosts(sort_by_key([...posts, data], 'created'))
+  setPosts(sort_by_key([...posts, data], sortKey))
 }
+
+const toggleSortKey = async (key) => {
+  setSortKey(key)
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${sortBySentiment}`)
+  const data = await res.json()
+  console.log(sortKey)
+  setPosts(sort_by_key(data, key))
+} 
 
   return (
     
       <Container maxWidth='md'>
         <div className='container'>
           <header className='App-header'>
-          <TopBar onSort={toggleSort} />
+          <TopBar onSort={toggleSort} onKey={toggleSortKey} />
           <Header onAdd={() => setShowPostForm(!showPostForm)} showAdd={showPostForm}/>
           </header>
           {showPostForm && <div className='Post-form'>
