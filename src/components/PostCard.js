@@ -53,7 +53,6 @@ const PostCard = ({post, onUp, onDown}) => {
       </CardContent>
       
       <CardActions>
-        <Button size="small"></Button>
         <Button size="small" onClick={() => onUp(post.id)}>Love it</Button>
         <Button size="small" onClick={() => onDown(post.id)}>Hate it</Button>
       </CardActions>

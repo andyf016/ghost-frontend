@@ -26,13 +26,13 @@ const handleClose = () => {
 const handlePopular = () =>{
   onKey('total_votes')
   handleClose()
-  console.log('opop')
+  
 }
 
 const handleCreated = () =>{
   onKey('created')
   handleClose()
-  console.log('opop')
+  
 }
 
 const handleBoastSort = () =>{
@@ -49,7 +49,7 @@ const handleAllSort = () =>{
   onSort('')
   handleClose()
 }
-//onClick={() => onSort(sortState)}
+
 
     return (
         <AppBar>
