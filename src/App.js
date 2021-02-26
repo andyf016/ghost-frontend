@@ -64,13 +64,14 @@ const toggleSort = async (sort) => {
   const res = await fetch(`http://127.0.0.1:8000/api/post/${sort}`)
   const data = await res.json()
   
-  setPosts(sort_by_key(data, 'total_votes'))
+  setPosts(sort_by_key(data, 'created'))
   //console.log(data)
 }
 
 
 function sort_by_key(array, key)
 {
+  //adapted from David Brainer on stack overflow
  return array.sort(function(a, b)
  {
   var x = a[key]; var y = b[key];
@@ -136,7 +137,7 @@ const handleAdd = async (post) =>{
   })
   const data = await res.json()
   //console.log(data)
-  setPosts([...posts, data])
+  setPosts(sort_by_key([...posts, data], 'created'))
 }
 
   return (

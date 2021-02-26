@@ -30,6 +30,12 @@ const useStyles = makeStyles({
 const PostCard = ({post, onUp, onDown}) => {
     const classes = useStyles();
 
+    const fixDate = (utcDate) => {
+      let theDate = new Date(utcDate)
+      //console.log(theDate)
+      return theDate
+    }
+
     return (
         <Card className={(post.sentiment === 'b') ? classes.rootBoast : classes.rootRoast}>
       <CardContent>
@@ -45,8 +51,9 @@ const PostCard = ({post, onUp, onDown}) => {
           {post.total_votes}
         </Typography>
       </CardContent>
+      
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button size="small"></Button>
         <Button size="small" onClick={() => onUp(post.id)}>Love it</Button>
         <Button size="small" onClick={() => onDown(post.id)}>Hate it</Button>
       </CardActions>
