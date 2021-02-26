@@ -5,7 +5,10 @@
 
 
 .App-header {
-  background-color: #282c34;
+  background-image: url('./1305985314092.jpg');
+  background-repeat: no-repeat;
+  background-size: initial;
+  margin: 0;
   margin-top: 50px;
   min-height: 35vh;
   display: flex;

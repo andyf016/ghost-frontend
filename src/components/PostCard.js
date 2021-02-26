@@ -9,17 +9,18 @@ const useStyles = makeStyles({
   rootRoast: {
     minWidth: 275,
     marginTop: 15,
-    backgroundColor: '#ff5722',
+    backgroundColor: '#f44336',
   },
 
   rootBoast: {
     minWidth: 275,
     marginTop: 15,
-    backgroundColor: '#03a9f4',
+    backgroundColor: '#3f51b5',
   },
 
   title: {
     fontSize: 14,
+    fontWeight: 'bold',
   },
   pos: {
     marginBottom: 12,
@@ -30,11 +31,6 @@ const useStyles = makeStyles({
 const PostCard = ({post, onUp, onDown}) => {
     const classes = useStyles();
 
-    const fixDate = (utcDate) => {
-      let theDate = new Date(utcDate)
-      //console.log(theDate)
-      return theDate
-    }
 
     return (
         <Card className={(post.sentiment === 'b') ? classes.rootBoast : classes.rootRoast}>
