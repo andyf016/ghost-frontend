@@ -59,14 +59,16 @@ useEffect(() =>{
 }, [])
 
 const toggleSort = async (sort) => {
-      setSortBySentiment(sort)
-      const data = await fetchPosts()
-      setPosts(data)
+  console.log(sort)
+  const res = await fetch(`http://127.0.0.1:8000/api/post/${sort}`)
+  const data = await res.json()
+  setPosts(data)
+  //console.log(data)
+    }
   
-  }
 
 const fetchPosts = async () => {
-  const res = await fetch(`http://127.0.0.1:8000/api/post/${sortBySentiment}`)
+  const res = await fetch('http://127.0.0.1:8000/api/post/')
   const data = await res.json()
   console.log(data)
   return data
@@ -130,7 +132,7 @@ const handleAdd = async (post) =>{
       <Container maxWidth='md'>
         <div className='container'>
           <header className='App-header'>
-          <TopBar onSort={toggleSort}/>
+          <TopBar onSort={toggleSort} />
           <Header onAdd={() => setShowPostForm(!showPostForm)} showAdd={showPostForm}/>
           </header>
           {showPostForm && <div className='Post-form'>
