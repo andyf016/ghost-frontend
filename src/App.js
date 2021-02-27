@@ -159,16 +159,16 @@ const toggleSortKey = async (key) => {
           <TopBar onSort={toggleSort} onKey={toggleSortKey} />
           <Header onAdd={() => setShowPostForm(!showPostForm)} showAdd={showPostForm}/>
           </header>
-          {showPostForm && <div className='Post-form'>
+
+        </div>
+        <Route path='/' exact render ={(props) => (
+          <>
+                    {showPostForm && <div className='Post-form'>
           <PostForm onAdd={handleAdd}/> 
           </div>}
           <div className='Post-card'>
           <Posts posts={posts} onDown={handleDownVote} onUp={handleUpVote}/>
           </div>
-        </div>
-        <Route path='/' exact render ={(props) => (
-          <>
-          
           </>
         )} />
         <Route path='/about' component={About}/>
