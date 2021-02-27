@@ -16,6 +16,7 @@ import PostForm from "./components/PostForm";
 import Header from "./components/Header";
 import TopBar from "./components/TopBar";
 import Footer from "./components/Footer";
+import About from "./components/About"
 
 import "fontsource-roboto";
 
@@ -151,7 +152,7 @@ const toggleSortKey = async (key) => {
 } 
 
   return (
-    
+    <Router>
       <Container maxWidth='md'>
         <div className='container'>
           <header className='App-header'>
@@ -165,9 +166,15 @@ const toggleSortKey = async (key) => {
           <Posts posts={posts} onDown={handleDownVote} onUp={handleUpVote}/>
           </div>
         </div>
+        <Route path='/' exact render ={(props) => (
+          <>
+          
+          </>
+        )} />
+        <Route path='/about' component={About}/>
         <Footer />
       </Container>
-    
+      </Router>
   );
 }
 
