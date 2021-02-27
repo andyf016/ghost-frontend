@@ -15,6 +15,7 @@ import Posts from "./components/Posts"
 import PostForm from "./components/PostForm";
 import Header from "./components/Header";
 import TopBar from "./components/TopBar";
+import Footer from "./components/Footer";
 
 import "fontsource-roboto";
 
@@ -57,7 +58,7 @@ useEffect(() =>{
     setPosts(sort_by_key(postsFromServer, sortKey))  
   }
   getPosts()
-}, [])
+})
 
 const toggleSort = async (sort) => {
   setSortBySentiment(sort)
@@ -164,6 +165,7 @@ const toggleSortKey = async (key) => {
           <Posts posts={posts} onDown={handleDownVote} onUp={handleUpVote}/>
           </div>
         </div>
+        <Footer />
       </Container>
     
   );
