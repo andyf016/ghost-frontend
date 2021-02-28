@@ -61,6 +61,7 @@ useEffect(() =>{
   getPosts()
 })
 
+// function to sort the list of posts
 const toggleSort = async (sort) => {
   setSortBySentiment(sort)
   //console.log(sort)
@@ -72,6 +73,7 @@ const toggleSort = async (sort) => {
 }
 
 
+//function to sort list of objects by a variable 'key'
 function sort_by_key(array, key)
 {
   //adapted from David Brainer on stack overflow
@@ -82,7 +84,7 @@ function sort_by_key(array, key)
  });
 }
 
-
+//fetch all posts from the server
 const fetchPosts = async () => {
   const res = await fetch(`http://127.0.0.1:8000/api/post/${sortBySentiment}`)
   const data = await res.json()
@@ -90,6 +92,7 @@ const fetchPosts = async () => {
   return data
 } 
 
+//fetch a single post
 const fetchPost = async (id) => {
   const res = await fetch(`http://127.0.0.1:8000/api/post/${id}`)
   const data = await res.json()
@@ -98,6 +101,7 @@ const fetchPost = async (id) => {
 } 
 
 
+//function to add an upvote to a post
 const handleUpVote = async (id) => {
   const postToUpvote = await fetchPost(id)
   const upvotedPost = {...postToUpvote, up_votes: postToUpvote.up_votes++}
@@ -113,6 +117,7 @@ const handleUpVote = async (id) => {
   
 }
 
+//function to handle adding a downvote to a post
 const handleDownVote = async (id) => {
   const postToDownvote = await fetchPost(id)
   const downvotedPost = {...postToDownvote, down_votes: postToDownvote.down_votes++}
@@ -130,7 +135,7 @@ const handleDownVote = async (id) => {
 }
 
 
-
+//function to add a new post to the database
 const handleAdd = async (post) =>{
   const res = await fetch('http://127.0.0.1:8000/api/post/', {
     method: 'POST',
@@ -143,6 +148,7 @@ const handleAdd = async (post) =>{
   setPosts(sort_by_key([...posts, data], sortKey))
 }
 
+//function to toggle which key to sort by
 const toggleSortKey = async (key) => {
   setSortKey(key)
   const res = await fetch(`http://127.0.0.1:8000/api/post/${sortBySentiment}`)
