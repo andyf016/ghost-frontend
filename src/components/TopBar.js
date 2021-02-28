@@ -59,7 +59,7 @@ const handleAllSort = () =>{
                   </IconButton>
 
                   <Typography variant="h6">
-                  Stuff goes here
+                  Sort Posts
                   </Typography>
                   <Menu
         id="simple-menu"
@@ -67,13 +67,13 @@ const handleAllSort = () =>{
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
-      >
+      ><Typography>
         <MenuItem onClick={handleBoastSort}>Boasts</MenuItem>
         <MenuItem onClick={handleRoastSort}>Roasts</MenuItem>
         <MenuItem onClick={handleAllSort}>All</MenuItem>
         <MenuItem onClick={handlePopular}>Most Popular</MenuItem>
         <MenuItem onClick={handleCreated}>Newest</MenuItem>
-      </Menu>
+     </Typography> </Menu>
               </ToolBar>
             </AppBar>
     )
