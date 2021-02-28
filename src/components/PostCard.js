@@ -47,11 +47,11 @@ const PostCard = ({post, onUp, onDown}) => {
           {post.total_votes}
         </Typography>
       </CardContent>
-      
+      <Typography variant="button">
       <CardActions>
         <Button size="small" onClick={() => onUp(post.id)}>Love it</Button>
         <Button size="small" onClick={() => onDown(post.id)}>Hate it</Button>
-      </CardActions>
+      </CardActions></Typography>
     </Card>
     )
 }
