@@ -5,8 +5,8 @@ import "fontsource-roboto";
 const About = () => {
     return (
         <div>
-            <Typography variant='h4'>Version 1.0.0</Typography>
-            <Typography>
+            <Typography align='center' variant='h4'>Version 1.0.0</Typography>
+            <Typography align='center'>
             <Link to='/'>Back</Link></Typography>
         </div>
     )

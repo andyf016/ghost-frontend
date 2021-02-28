@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
+import Typography from "@material-ui/core/Typography";
 
 
 const Footer = () => {
     return (
         <footer>
-            <p>Copyright &copy; 2021</p>
-            <Link to='/about'>About</Link>
+            <br/>
+            <Typography align="center">Copyright &copy; 2021</Typography>
+            <Typography align="center"><Link to='/about'>About</Link></Typography>
         </footer>
     )
 }
