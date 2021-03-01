@@ -1,5 +1,7 @@
 body {
-  background-color:#1de9b6;
-  margin: 0;
+  background-image: url('./1305985314092.jpg');
+  margin: 0px;
+  background-size: cover;
+  background-attachment: fixed;
 }
 

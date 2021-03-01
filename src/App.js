@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core/styles";
 import { orange } from "@material-ui/core/colors";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
+
 
 import Posts from "./components/Posts"
 import PostForm from "./components/PostForm";
@@ -59,7 +59,7 @@ useEffect(() =>{
     setPosts(sort_by_key(postsFromServer, sortKey))  
   }
   getPosts()
-})
+}, [])
 
 // function to sort the list of posts
 const toggleSort = async (sort) => {
