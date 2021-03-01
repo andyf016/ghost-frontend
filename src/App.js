@@ -59,6 +59,7 @@ useEffect(() =>{
     setPosts(sort_by_key(postsFromServer, sortKey))  
   }
   getPosts()
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
 // function to sort the list of posts
@@ -161,8 +162,8 @@ const toggleSortKey = async (key) => {
     <Router>
       <Container maxWidth='md'>
         <div className='container'>
-          <header className='App-header'>
           <TopBar onSort={toggleSort} onKey={toggleSortKey} />
+          <header className='App-header'>
           <Header onAdd={() => setShowPostForm(!showPostForm)} showAdd={showPostForm}/>
           </header>
 

@@ -9,13 +9,13 @@ const useStyles = makeStyles({
   rootRoast: {
     minWidth: 275,
     marginTop: 15,
-    backgroundColor: '#f44336',
+    backgroundColor: '#ff9100',
   },
 
   rootBoast: {
     minWidth: 275,
     marginTop: 15,
-    backgroundColor: '#3f51b5',
+    backgroundColor: '#2196f3',
   },
 
   title: {
