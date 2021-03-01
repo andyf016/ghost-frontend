@@ -1,4 +1,6 @@
 import {useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+
 import AppBar from '@material-ui/core/AppBar'
 import ToolBar from '@material-ui/core/ToolBar'
 import IconButton from '@material-ui/core/IconButton'
@@ -10,10 +12,17 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import "fontsource-roboto";
 
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: '#2137b1',
+  }
+})
+
 const TopBar = ({onSort, onKey}) => {
 const [anchorEl, setAnchorEl] = useState(null);
 //const [boastState, setboastState] = useState('list_boasts')
 //const [roastState, ]
+const classes = useStyles();
 
 const handleClick = (event) => {
   setAnchorEl(event.currentTarget);
@@ -52,7 +61,7 @@ const handleAllSort = () =>{
 
 
     return (
-        <AppBar>
+        <AppBar className={classes.root}>
               <ToolBar>
                 <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                   <MenuIcon />
